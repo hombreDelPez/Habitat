@@ -83,6 +83,9 @@
     <Reference Include="NitroNet.ViewEngine.TemplateHandler, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NitroNet.Core.1.1.2\lib\net452\NitroNet.ViewEngine.TemplateHandler.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Kernel, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Sitecore.Kernel.NoReferences.8.2.170614\lib\NET452\Sitecore.Kernel.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Support.387950, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NitroNet.Sitecore.Sitecore82.1.1.2\lib\net452\Sitecore.Support.387950.dll</HintPath>
     </Reference>
@@ -144,6 +147,7 @@
     <Content Include="App_Config\Include\NitroNet\MvcRenderingPipeline.config" />
     <Content Include="App_Config\Include\NitroNet\EventHandlingInitializer.config" />
     <Content Include="App_Config\Include\NitroNet\DependencyInjection.config" />
+    <Content Include="App_Config\Include\zzz\Sitecore.Foundation.NitroNet.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -157,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterNitroNetViewEngine.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
