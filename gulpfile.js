@@ -31,6 +31,7 @@ gulp.task("default", function (callback) {
     "01-Copy-Sitecore-License",
     "02-Nuget-Restore",
     "03-Publish-All-Projects",
+    "Publish-Nitro",
     "04-Apply-Xml-Transform",
     "05-Sync-Unicorn",
     "06-Deploy-Transforms",
@@ -268,6 +269,32 @@ gulp.task("Publish-All-Configs", function () {
     })
   );
 });
+
+gulp.task("Publish-Nitro",
+    function (callback) {
+        return runSequence(
+            "Publish-Nitro-Patterns",
+            callback);
+    });
+
+
+gulp.task("Publish-Nitro-Patterns",
+    function () {
+        var root = "./";
+        var roots = [root + "/frontend/patterns"];
+        var files = "/**/*.{hbs,html}";
+        var destination = config.frontendRoot + "\\patterns";
+        return gulp.src(roots, { base: root }).pipe(
+            foreach(function (stream, file) {
+                console.log("Publishing from " + file.path);
+                gulp.src(file.path + files, { base: file.path })
+                    .pipe(newer(destination))
+                    .pipe(debug({ title: "Copying " }))
+                    .pipe(gulp.dest(destination));
+                return stream;
+            })
+        );
+    });
 
 /*****************************
  Watchers

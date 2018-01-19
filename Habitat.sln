@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.SitecoreExtensions", "src\foundation\SitecoreExtensions\code\Sitecore.Foundation.SitecoreExtensions.csproj", "{B535703F-8D07-4F23-A533-2974BB4CC7B1}"
 EndProject
@@ -199,7 +199,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "Depe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NitroNet", "NitroNet", "{F2B4EDBA-A0F3-49A4-B20E-E35EBF10896E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.NitroNet", "src\Foundation\Sitecore.Foundation.NitroNet\Sitecore.Foundation.NitroNet.csproj", "{8A3AA92C-C47E-4F04-8AD2-CCB9A98C2C3E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NitroTest", "NitroTest", "{35C13EB7-3065-4AAB-9C29-BCD396DE3719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.NitroNet", "src\Foundation\NitroNet\code\Sitecore.Foundation.NitroNet.csproj", "{8A3AA92C-C47E-4F04-8AD2-CCB9A98C2C3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -710,6 +712,7 @@ Global
 		{366148B7-2392-4F42-80D6-786B7A3682AE} = {86FB273F-3637-45AF-825D-CFEFE1F7A8EA}
 		{86FB273F-3637-45AF-825D-CFEFE1F7A8EA} = {D2CBE02E-6AA7-4343-9A01-891F971A17F5}
 		{F2B4EDBA-A0F3-49A4-B20E-E35EBF10896E} = {D2CBE02E-6AA7-4343-9A01-891F971A17F5}
+		{35C13EB7-3065-4AAB-9C29-BCD396DE3719} = {755F9E42-1707-4E1A-AE6D-3FD8A25118C0}
 		{8A3AA92C-C47E-4F04-8AD2-CCB9A98C2C3E} = {F2B4EDBA-A0F3-49A4-B20E-E35EBF10896E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
