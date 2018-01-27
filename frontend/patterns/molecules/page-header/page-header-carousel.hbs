@@ -1,0 +1,40 @@
+<div id="{{id}}" class="carousel slide" data-ride="carousel" {{dataIntervalElement}}>
+    <ol class="carousel-indicators">
+        {{#each carousel}}
+            <li data-target="#{{..\id}}" data-slide-to="{{carousel.index}}" class="{{carousel.isActive}}"></li>
+        {{/each}}
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+		{{#each carousel}}   
+            <div class="item {{carousel.isActive}}">
+                <div class="jumbotron jumbotron-xl bg-media" style="{{carousel.style}}">
+                    {{#if carousel.isDerived}}					                   
+                        <video autoplay="" loop="" muted="" class="video-bg">
+                            <source src="{{carousel.videoUrl}}" type="video/mp4">
+                        </video>
+                    {{/if}}
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>{{carousel.title}}</h1>
+                                <p class="lead">{{carousel.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		{{/each}}   
+    </div>
+
+    <a class="left carousel-control" href="#{{id}}" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#{{id}}" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+</div>
