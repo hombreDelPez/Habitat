@@ -1,15 +1,11 @@
 {
   "viewPaths": [
-    "frontend/views"
   ],
   "partialPaths": [
-    "frontend/views/_partials"
   ],
-  "componentPaths": [
-    "frontend/components/atoms",
-    "frontend/components/molecules",
-    "frontend/components/organisms"
-  ],
+    "componentPaths": [
+    "frontend/patterns/molecules",
+    ],
   "extensions": [
     "hbs",
     "html"
