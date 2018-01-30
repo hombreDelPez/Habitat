@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MediaFeatureController.cs" />
+    <Compile Include="Controllers\PageHeaderCarouselNitroNetController.cs" />
     <Compile Include="Models\MediaBackgroundRenderingModel.cs" />
     <Compile Include="Models\MediaSelectorElement.cs" />
     <Compile Include="Repositories\MediaSelectorElementsRepository.cs" />
