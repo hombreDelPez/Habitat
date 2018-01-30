@@ -1,13 +1,13 @@
-<div id="{{id}}" class="carousel slide" data-ride="carousel" {{dataIntervalElement}}>
+<div id="{{id}}" class="carousel slide" data-ride="carousel" {{dataIntervalAttribute}}>
     <ol class="carousel-indicators">
         {{#each carousels}}
-            <li data-target="#{{../id}}" data-slide-to="{{index}}" class="{{Active}}"></li>
+            <li data-target="#{{../id}}" data-slide-to="{{index}}" class="{{active}}"></li>
         {{/each}}
     </ol>
 
     <div class="carousel-inner" role="listbox">
 		{{#each carousels}}   
-            <div class="item {{Active}}">
+            <div class="item {{active}}">
                 <div class="jumbotron jumbotron-xl bg-media" style="{{style}}">
                     {{#if isVideo}}					                   
                         <video autoplay="" loop="" muted="" class="video-bg">

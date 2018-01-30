@@ -19,7 +19,7 @@
             var model = new PageHeaderCarouselViewModel
             {
                 Id = "carousel" + Guid.NewGuid().ToString("N"),
-                DataIntervalElement = Sitecore.Context.PageMode.IsExperienceEditor ? "data-interval" : "",
+                DataIntervalAttribute = Sitecore.Context.PageMode.IsExperienceEditor ? "data-interval" : "",
                 Carousels = this.GetCarousels(),
                 PreviousLabel = "", //TODO
                 NextLabel = "" //TODO
@@ -90,7 +90,7 @@
     public class PageHeaderCarouselViewModel
     {
         public string Id { get; set; }
-        public string DataIntervalElement { get; set; }
+        public string DataIntervalAttribute { get; set; }
         public IList<CarouselViewModel> Carousels { get; set; }
         public string PreviousLabel { get; set; }
         public string NextLabel { get; set; }
