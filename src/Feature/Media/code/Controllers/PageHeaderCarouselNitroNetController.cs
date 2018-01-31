@@ -5,27 +5,32 @@
     using System.Linq;
     using System.Web.Mvc;
     using Sitecore.Data.Fields;
+    using Sitecore.Data.Items;
     using Sitecore.Feature.Media.Models;
     using Sitecore.Feature.Media.Repositories;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Foundation.Theming.Extensions;
     using Sitecore.Mvc.Presentation;
     using Sitecore.Resources.Media;
+    using Sitecore.Feature.Media.ViewModels;
+    using Sitecore.Foundation.Alerts;
+    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.Web.UI.XslControls;
 
     public class PageHeaderCarouselNitroNetController : Controller
     {
         public ActionResult Index()
         {
+            //TODO Return PageEditorError if invalid Datasource Template (see cshtml) 
+
             var model = new PageHeaderCarouselViewModel
             {
                 Id = "carousel" + Guid.NewGuid().ToString("N"),
                 DataIntervalAttribute = Sitecore.Context.PageMode.IsExperienceEditor ? "data-interval" : "",
                 Carousels = this.GetCarousels(),
-                PreviousLabel = "", //TODO
-                NextLabel = "" //TODO
+                PreviousLabel = DictionaryPhraseRepository.Current.Get("/media/carousel/previous", "Previous"),
+                NextLabel = DictionaryPhraseRepository.Current.Get("/media/carousel/next", "Next")
             };
-
-            //TODO Return PageEditorError if invalid Datasource Template (see cshtml)
 
             return this.View("frontend/patterns/molecules/page-header/page-header-carousel", model);
         }
@@ -33,7 +38,6 @@
         private IList<CarouselViewModel> GetCarousels()
         {
             var renderingItem = RenderingContext.Current.Rendering.Item;
-
             var carouselItems = MediaSelectorElementsRepository.Get(renderingItem).ToArray();
 
             var carouselList = new List<CarouselViewModel>();
@@ -48,8 +52,8 @@
                     Style = this.GetStyle(currentElement),
                     IsVideo = currentElement.Item.IsDerived(Templates.HasMediaVideo.ID),
                     VideoUrl = currentElement.Item.MediaUrl(Templates.HasMediaVideo.Fields.VideoLink),
-                    Title = "", //TODO
-                    Description = "" //TODO
+                    Title = Sitecore.Web.UI.WebControls.FieldRenderer.Render(currentElement.Item, Templates.HasMedia.Fields.Title.ToString()), 
+                    Description = Sitecore.Web.UI.WebControls.FieldRenderer.Render(currentElement.Item, Templates.HasMedia.Fields.Description.ToString()) 
                 });
             }
 
@@ -85,25 +89,5 @@
 
             return carouselHeight;
         }
-    }
-
-    public class PageHeaderCarouselViewModel
-    {
-        public string Id { get; set; }
-        public string DataIntervalAttribute { get; set; }
-        public IList<CarouselViewModel> Carousels { get; set; }
-        public string PreviousLabel { get; set; }
-        public string NextLabel { get; set; }
-    }
-
-    public class CarouselViewModel
-    {
-        public int Index { get; set; }
-        public string Active { get; set; }
-        public string Style { get; set; }
-        public bool IsVideo { get; set; }
-        public string VideoUrl { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
     }
 }
